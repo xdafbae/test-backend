@@ -1,0 +1,115 @@
+{
+	"info": {
+		"_postman_id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+		"name": "SharingVision",
+		"description": "Postman Collection untuk SharingVision Post Article API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Article",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"title\": \"Judul artikel minimal dua puluh karakter\",\n  \"content\": \"Konten artikel minimal dua ratus karakter. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.\",\n  \"category\": \"Tech\",\n  \"status\": \"publish\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/article",
+					"host": ["{{base_url}}"],
+					"path": ["article"]
+				},
+				"description": "Buat artikel baru. Response: 201 dengan data artikel yang dibuat."
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Articles",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/article/10/0",
+					"host": ["{{base_url}}"],
+					"path": ["article", "10", "0"]
+				},
+				"description": "Ambil semua artikel dengan pagination. limit=10, offset=0 (halaman 1)."
+			},
+			"response": []
+		},
+		{
+			"name": "Get Article by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/article/1",
+					"host": ["{{base_url}}"],
+					"path": ["article", "1"]
+				},
+				"description": "Ambil artikel berdasarkan ID. Response 404 jika tidak ditemukan."
+			},
+			"response": []
+		},
+		{
+			"name": "Update Article",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"title\": \"Judul artikel yang sudah diupdate minimal dua puluh karakter\",\n  \"content\": \"Konten artikel yang sudah diupdate dan minimal dua ratus karakter. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor.\",\n  \"category\": \"Technology\",\n  \"status\": \"publish\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/article/1",
+					"host": ["{{base_url}}"],
+					"path": ["article", "1"]
+				},
+				"description": "Update artikel berdasarkan ID. Response 404 jika tidak ditemukan."
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Article",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/article/1",
+					"host": ["{{base_url}}"],
+					"path": ["article", "1"]
+				},
+				"description": "Hapus artikel berdasarkan ID. Response: {message: 'Post deleted successfully'}"
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:8080",
+			"type": "string"
+		}
+	]
+}
