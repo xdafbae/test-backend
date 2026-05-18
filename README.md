@@ -1,4 +1,5 @@
 # SharingVision Backend
+> **Test Submission by Dafa Yudistira**
 
 REST API untuk manajemen artikel menggunakan **Go + Gin + GORM + MySQL**.
 
